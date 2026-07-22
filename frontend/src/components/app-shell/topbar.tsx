@@ -29,11 +29,9 @@ export function Topbar() {
     <header className="flex h-14 shrink-0 items-center justify-between border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:px-6">
       <div className="flex items-center gap-3">
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="lg:hidden">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle navigation</span>
-            </Button>
+          <SheetTrigger render={<Button variant="ghost" size="icon" className="lg:hidden" />}>
+            <Menu className="h-5 w-5" />
+            <span className="sr-only">Toggle navigation</span>
           </SheetTrigger>
           <SheetContent side="left" className="w-64 p-0">
             <SheetTitle className="sr-only">Navigation</SheetTitle>
@@ -47,32 +45,24 @@ export function Topbar() {
       </div>
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="h-9 gap-2 px-2">
-            <Avatar className="h-7 w-7">
-              <AvatarFallback className="text-xs">You</AvatarFallback>
-            </Avatar>
-          </Button>
+        <DropdownMenuTrigger render={<Button variant="ghost" className="h-9 gap-2 px-2" />}>
+          <Avatar className="h-7 w-7">
+            <AvatarFallback className="text-xs">You</AvatarFallback>
+          </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem asChild>
-            <Link href="/settings">
-              <User className="h-4 w-4" />
-              Profile
-            </Link>
+          <DropdownMenuItem render={<Link href="/settings" />}>
+            <User className="h-4 w-4" />
+            Profile
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/settings">
-              <Settings className="h-4 w-4" />
-              Settings
-            </Link>
+          <DropdownMenuItem render={<Link href="/settings" />}>
+            <Settings className="h-4 w-4" />
+            Settings
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem asChild variant="destructive">
-            <Link href="/login">
-              <LogOut className="h-4 w-4" />
-              Log out
-            </Link>
+          <DropdownMenuItem variant="destructive" render={<Link href="/login" />}>
+            <LogOut className="h-4 w-4" />
+            Log out
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

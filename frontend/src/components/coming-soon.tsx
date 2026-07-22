@@ -3,8 +3,9 @@ import type { LucideIcon } from "lucide-react";
 import { ArrowLeft, Hammer } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 type ComingSoonProps = {
   title: string;
@@ -33,12 +34,13 @@ export function ComingSoon({ title, description, icon: Icon }: ComingSoonProps) 
             <p className="text-sm text-muted-foreground">{description}</p>
           </div>
 
-          <Button asChild variant="outline" size="sm" className="mt-2">
-            <Link href="/dashboard">
-              <ArrowLeft className="h-4 w-4" />
-              Back to dashboard
-            </Link>
-          </Button>
+          <Link
+            href="/dashboard"
+            className={cn(buttonVariants({ variant: "outline", size: "sm" }), "mt-2")}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to dashboard
+          </Link>
         </CardContent>
       </Card>
     </div>

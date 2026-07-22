@@ -6,7 +6,6 @@ import {
   Bot,
   Cable,
   CreditCard,
-  Flame,
   Headphones,
   LayoutDashboard,
   ListChecks,

@@ -62,7 +62,9 @@ export function Topbar() {
       <DropdownMenu>
         <DropdownMenuTrigger render={<Button variant="ghost" className="h-9 gap-2 px-2" />}>
           <Avatar className="h-7 w-7">
-            <AvatarFallback className="text-xs">You</AvatarFallback>
+            <AvatarFallback className="text-xs">
+              {user ? initials(user.name, user.email) : "?"}
+            </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
@@ -75,7 +77,7 @@ export function Topbar() {
             Settings
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive" render={<Link href="/login" />}>
+          <DropdownMenuItem variant="destructive" onClick={handleLogout}>
             <LogOut className="h-4 w-4" />
             Log out
           </DropdownMenuItem>

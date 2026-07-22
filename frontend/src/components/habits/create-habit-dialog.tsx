@@ -103,9 +103,11 @@ export function CreateHabitDialog({ onCreate }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger render={<Button />}>
-        <Plus className="h-4 w-4" />
-        New habit
+      <DialogTrigger asChild>
+        <Button>
+          <Plus className="h-4 w-4" />
+          New habit
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>

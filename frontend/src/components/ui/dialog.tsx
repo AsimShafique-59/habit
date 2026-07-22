@@ -60,7 +60,7 @@ function DialogContent({
       >
         {children}
         {showCloseButton && (
-          <DialogPrimitive.Close data-slot="dialog-close" asChild>
+          <DialogPrimitive.Close data-slot="dialog-close">
             <Button
               variant="ghost"
               className="absolute top-2 right-2"
@@ -105,7 +105,7 @@ function DialogFooter({
     >
       {children}
       {showCloseButton && (
-        <DialogPrimitive.Close asChild>
+        <DialogPrimitive.Close>
           <Button variant="outline">Close</Button>
         </DialogPrimitive.Close>
       )} 

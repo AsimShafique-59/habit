@@ -44,7 +44,7 @@ export function Topbar() {
     <header className="flex h-14 shrink-0 items-center justify-between border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:px-6">
       <div className="flex items-center gap-3">
         <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger asChild>
+        <SheetTrigger>
           <Button variant="ghost" size="icon" className="lg:hidden">
             <Menu className="h-5 w-5" />
             <span className="sr-only">Toggle navigation</span>
@@ -62,7 +62,7 @@ export function Topbar() {
       </div>
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
+        <DropdownMenuTrigger>
           <Button variant="ghost" className="h-9 gap-2 px-2">
             <Avatar className="h-7 w-7">
               <AvatarFallback className="text-xs">
@@ -72,18 +72,18 @@ export function Topbar() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem asChild>
+          <DropdownMenuItem>
             <Link href="/settings" className="flex items-center gap-2 w-full">
               <User className="h-4 w-4" />
               Profile
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
+          </DropdownMenuItem> 
+          <DropdownMenuItem>
             <Link href="/settings" className="flex items-center gap-2 w-full">
               <Settings className="h-4 w-4" />
               Settings
             </Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> 
           <DropdownMenuSeparator />
           <DropdownMenuItem variant="destructive" onClick={handleLogout}>
             <LogOut className="h-4 w-4" />

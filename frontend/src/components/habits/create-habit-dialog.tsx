@@ -103,7 +103,7 @@ export function CreateHabitDialog({ onCreate }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <Button>
           <Plus className="h-4 w-4" />
           New habit

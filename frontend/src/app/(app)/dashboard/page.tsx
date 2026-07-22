@@ -12,6 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -119,7 +120,7 @@ export default function DashboardPage() {
         </CardContent>
       </Card>
 
-      <Link href="/habits" className={buttonVariants({ variant: "outline" }) + " w-fit"}>
+      <Link href="/habits" className={cn(buttonVariants({ variant: "outline" }), "w-fit")}>
         Manage habits
       </Link>
     </div>

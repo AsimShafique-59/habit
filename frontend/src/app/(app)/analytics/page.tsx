@@ -46,8 +46,14 @@ export default function AnalyticsPage() {
   const [momentum, setMomentum] = useState<MomentumIndex | null>(null);
   const [consistency, setConsistency] = useState<ConsistencyScore | null>(null);
   const [streaks, setStreaks] = useState<StreakDashboard | null>(null);
+  type DayOfWeekRow = {
+    day: string;
+    completion_rate: number;
+    rate: number;
+  };
+
   const [heatmap, setHeatmap] = useState<HeatmapPoint[]>([]);
-  const [weekdays, setWeekdays] = useState<DayOfWeekBreakdown["breakdown"]>([]);
+  const [weekdays, setWeekdays] = useState<DayOfWeekRow[]>([]);
   const [reports, setReports] = useState<WeeklyReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
@@ -70,7 +76,13 @@ export default function AnalyticsPage() {
       setConsistency(consistencyRes);
       setStreaks(streakRes);
       setHeatmap(heatmapRes.heatmap ?? []);
-      setWeekdays(weekdayRes.breakdown ?? []);
+      setWeekdays(
+        Object.entries(weekdayRes.breakdown ?? {}).map(([day, value]) => ({
+          day,
+          completion_rate: Number(value ?? 0),
+          rate: Number(value ?? 0),
+        })),
+      );
       setReports(reportsRes.reports ?? []);
     } catch (err) {
       const message = err instanceof ApiError ? err.message : "Could not load analytics.";
@@ -176,9 +188,9 @@ export default function AnalyticsPage() {
               weekdays.map((day, index) => {
                 const value = pct(day.completion_rate ?? day.rate);
                 return (
-                  <div key={`${day.day ?? day.weekday ?? index}`} className="space-y-1.5">
+                  <div key={`${day.day ?? index}`} className="space-y-1.5">
                     <div className="flex justify-between text-xs">
-                      <span className="font-medium">{day.day ?? day.weekday ?? `Day ${index + 1}`}</span>
+                      <span className="font-medium">{day.day ?? `Day ${index + 1}`}</span>
                       <span className="text-muted-foreground">{value}%</span>
                     </div>
                     <Progress value={value} />

@@ -67,12 +67,7 @@ export type HeatmapPoint = {
 };
 
 export type DayOfWeekBreakdown = {
-  breakdown: {
-    day?: string;
-    weekday?: string;
-    completion_rate?: number;
-    rate?: number;
-  }[];
+  breakdown: Record<string, number>;
   from: string;
   to: string;
 };

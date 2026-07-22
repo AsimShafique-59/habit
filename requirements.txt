@@ -17,6 +17,7 @@ click-repl==0.3.0
 cron-descriptor==1.4.5
 cryptography==48.0.0
 Django==6.0.4
+django-cors-headers==4.9.0
 django-celery-beat==2.9.0
 django-filter==25.2
 django-timezone-field==7.2.1
